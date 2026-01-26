@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import HomePage from "@/pages/HomePage";
 import AdminPage from "@/pages/AdminPage";
+import PrivacyPage from "@/pages/PrivacyPage";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 export const API = `${BACKEND_URL}/api`;
