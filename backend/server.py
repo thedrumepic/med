@@ -69,6 +69,51 @@ class AdminLogin(BaseModel):
     username: str
     password: str
 
+# Promocode models
+class PromocodeBase(BaseModel):
+    code: str
+    discount_type: str  # "percent" or "fixed"
+    discount_value: float
+    max_uses: int
+    current_uses: int = 0
+    is_active: bool = True
+
+class PromocodeCreate(BaseModel):
+    code: str
+    discount_type: str
+    discount_value: float
+    max_uses: int
+
+class Promocode(PromocodeBase):
+    id: str
+
+# Order models
+class OrderItem(BaseModel):
+    name: str
+    weight: Optional[str] = None
+    price: float
+    quantity: int
+
+class OrderCreate(BaseModel):
+    customer_name: str
+    customer_phone: str
+    items: List[OrderItem]
+    subtotal: float
+    discount: float = 0
+    total: float
+    promocode: Optional[str] = None
+
+class Order(BaseModel):
+    id: str
+    customer_name: str
+    customer_phone: str
+    items: List[OrderItem]
+    subtotal: float
+    discount: float
+    total: float
+    promocode: Optional[str]
+    created_at: str
+
 # Helper functions
 def verify_admin(credentials: HTTPBasicCredentials = Depends(security)):
     correct_username = secrets.compare_digest(credentials.username, ADMIN_USERNAME)
