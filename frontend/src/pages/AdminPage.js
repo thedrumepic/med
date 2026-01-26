@@ -129,8 +129,11 @@ const AdminPage = () => {
         description: product.description || "",
         category_id: product.category_id,
         image: product.image,
-        base_price: product.base_price,
-        weight_prices: product.weight_prices || []
+        base_price: String(product.base_price),
+        weight_prices: product.weight_prices?.map(wp => ({
+          weight: wp.weight,
+          price: String(wp.price)
+        })) || []
       });
     } else {
       setEditingProduct(null);
@@ -139,7 +142,7 @@ const AdminPage = () => {
         description: "",
         category_id: categories[0]?.id || "",
         image: "",
-        base_price: 0,
+        base_price: "",
         weight_prices: []
       });
     }
@@ -147,12 +150,20 @@ const AdminPage = () => {
   };
 
   const saveProduct = async () => {
+    const dataToSave = {
+      ...productForm,
+      base_price: parseFloat(productForm.base_price) || 0,
+      weight_prices: productForm.weight_prices.map(wp => ({
+        weight: wp.weight,
+        price: parseFloat(wp.price) || 0
+      }))
+    };
     try {
       if (editingProduct) {
-        await axios.put(`${API}/products/${editingProduct.id}`, productForm, authHeader);
+        await axios.put(`${API}/products/${editingProduct.id}`, dataToSave, authHeader);
         toast.success("Товар обновлен");
       } else {
-        await axios.post(`${API}/products`, productForm, authHeader);
+        await axios.post(`${API}/products`, dataToSave, authHeader);
         toast.success("Товар создан");
       }
       setProductModalOpen(false);
