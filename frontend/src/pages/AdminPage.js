@@ -228,15 +228,20 @@ const AdminPage = () => {
     setPromocodeForm({
       code: "",
       discount_type: "percent",
-      discount_value: 0,
-      max_uses: 100
+      discount_value: "",
+      max_uses: "100"
     });
     setPromocodeModalOpen(true);
   };
 
   const savePromocode = async () => {
+    const dataToSave = {
+      ...promocodeForm,
+      discount_value: parseFloat(promocodeForm.discount_value) || 0,
+      max_uses: parseInt(promocodeForm.max_uses) || 1
+    };
     try {
-      await axios.post(`${API}/promocodes`, promocodeForm, authHeader);
+      await axios.post(`${API}/promocodes`, dataToSave, authHeader);
       toast.success("Промокод создан");
       setPromocodeModalOpen(false);
       fetchData();
