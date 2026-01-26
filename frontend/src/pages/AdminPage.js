@@ -651,10 +651,11 @@ const AdminPage = () => {
                     onChange={(e) => setWeightInput(prev => ({ ...prev, weight: e.target.value }))}
                   />
                   <Input
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
                     placeholder="Цена"
                     value={weightInput.price}
-                    onChange={(e) => setWeightInput(prev => ({ ...prev, price: e.target.value }))}
+                    onChange={(e) => setWeightInput(prev => ({ ...prev, price: e.target.value.replace(/[^\d.]/g, '') }))}
                   />
                   <Button type="button" variant="outline" onClick={addWeightPrice}>
                     <Plus className="w-4 h-4" />
