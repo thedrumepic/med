@@ -47,15 +47,15 @@ const AdminPage = () => {
     description: "",
     category_id: "",
     image: "",
-    base_price: 0,
+    base_price: "",
     weight_prices: []
   });
   const [categoryForm, setCategoryForm] = useState({ name: "", slug: "" });
   const [promocodeForm, setPromocodeForm] = useState({
     code: "",
     discount_type: "percent",
-    discount_value: 0,
-    max_uses: 100
+    discount_value: "",
+    max_uses: ""
   });
   const [weightInput, setWeightInput] = useState({ weight: "", price: "" });
 
