@@ -59,18 +59,30 @@ const HomePage = () => {
             </div>
           </div>
           
-          <button
-            onClick={() => setIsCartOpen(true)}
-            className="relative p-2 hover:bg-secondary rounded-full transition-colors"
-            data-testid="cart-button"
-          >
-            <ShoppingCart className="w-6 h-6 text-primary" />
-            {cartItemsCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-semibold">
-                {cartItemsCount}
-              </span>
+          <div className="relative">
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 hover:bg-secondary rounded-full transition-colors"
+              data-testid="cart-button"
+            >
+              <ShoppingCart className="w-6 h-6 text-primary" />
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-semibold">
+                  {cartItemsCount}
+                </span>
+              )}
+            </button>
+            
+            {/* Cart Hint Animation */}
+            {showCartHint && (
+              <div className="absolute top-full right-0 mt-2 whitespace-nowrap animate-bounce">
+                <div className="bg-primary text-white text-xs font-medium px-3 py-1.5 rounded-lg shadow-lg relative">
+                  <div className="absolute -top-1 right-4 w-2 h-2 bg-primary rotate-45"></div>
+                  Ваши товары тут ↑
+                </div>
+              </div>
             )}
-          </button>
+          </div>
         </div>
       </header>
 
