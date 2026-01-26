@@ -1,0 +1,125 @@
+{
+  "design_system": {
+    "typography": {
+      "font_family": {
+        "heading": "Nunito, sans-serif",
+        "body": "Manrope, sans-serif"
+      },
+      "scale": {
+        "h1": "text-4xl md:text-5xl font-bold tracking-tight",
+        "h2": "text-3xl md:text-4xl font-bold",
+        "h3": "text-2xl font-semibold",
+        "body": "text-base leading-relaxed",
+        "small": "text-sm font-medium"
+      }
+    },
+    "colors": {
+      "palette": {
+        "primary": {
+          "DEFAULT": "#F59E0B",
+          "foreground": "#FFFFFF",
+          "hover": "#D97706"
+        },
+        "secondary": {
+          "DEFAULT": "#FEF3C7",
+          "foreground": "#451A03"
+        },
+        "background": "#FFFBEB",
+        "foreground": "#451A03",
+        "card": "#FFFFFF",
+        "card_foreground": "#451A03",
+        "muted": "#FDE68A",
+        "muted_foreground": "#92400E",
+        "border": "#FCD34D",
+        "input": "#FDE68A",
+        "ring": "#F59E0B"
+      },
+      "semantic": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#3B82F6"
+      }
+    },
+    "spacing": {
+      "container_padding": "px-4 md:px-8 lg:px-12",
+      "section_gap": "py-16 md:py-24",
+      "element_gap": "gap-4 md:gap-6"
+    },
+    "visual_enhancers": {
+      "radius": "rounded-xl",
+      "shadows": {
+        "card": "shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-shadow duration-300",
+        "modal": "shadow-2xl"
+      },
+      "glassmorphism": "backdrop-blur-md bg-white/70 border border-white/20"
+    }
+  },
+  "components": {
+    "ProductCard": {
+      "path": "/app/frontend/src/components/custom/ProductCard.js",
+      "description": "Card with rounded corners, shadow, image, title, price, and 'Buy' button.",
+      "props": ["image", "title", "price", "onOpenModal"],
+      "styling": "bg-card rounded-xl overflow-hidden border border-amber-100 hover:border-amber-300 transition-all duration-300"
+    },
+    "ProductModal": {
+      "path": "/app/frontend/src/components/custom/ProductModal.js",
+      "description": "Dialog component showing large product image, weight selection, and price calculation.",
+      "dependencies": ["@radix-ui/react-dialog"],
+      "features": ["Weight selector (pills)", "Dynamic price update", "Add to Cart button"]
+    },
+    "CartDrawer": {
+      "path": "/app/frontend/src/components/custom/CartDrawer.js",
+      "description": "Side sheet (right) displaying cart items and checkout form.",
+      "dependencies": ["@radix-ui/react-dialog", "Sheet component"],
+      "features": ["List of items", "Total price", "Name/Phone inputs", "WhatsApp/Telegram buttons"]
+    },
+    "CategoryFilter": {
+      "path": "/app/frontend/src/components/custom/CategoryFilter.js",
+      "description": "Horizontal scrollable list of pill-shaped buttons for categories.",
+      "styling": "flex gap-2 overflow-x-auto pb-4 scrollbar-hide"
+    },
+    "AdminDashboard": {
+      "path": "/app/frontend/src/pages/AdminDashboard.js",
+      "description": "Table view for managing products. Simple, clean, high contrast.",
+      "features": ["Product list", "Add/Edit Modal", "Delete action"]
+    }
+  },
+  "layout": {
+    "grid_system": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8",
+    "container": "max-w-7xl mx-auto",
+    "modal_layout": "grid grid-cols-1 md:grid-cols-2 gap-6"
+  },
+  "assets": {
+    "images": {
+      "honey_jars": [
+        "https://images.unsplash.com/photo-1691480208637-6ed63aac6694?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODh8MHwxfHNlYXJjaHwxfHxob25leSUyMGphciUyMG9yZ2FuaWMlMjBwcm9kdWN0fGVufDB8fHx8MTc2OTQ1NTc1NHww&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1719871766551-b9ecf87eee51?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODh8MHwxfHNlYXJjaHwyfHxob25leSUyMGphciUyMG9yZ2FuaWMlMjBwcm9kdWN0fGVufDB8fHx8MTc2OTQ1NTc1NHww&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1621757555666-89a8abdb44f1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODh8MHwxfHNlYXJjaHwzfHxob25leSUyMGphciUyMG9yZ2FuaWMlMjBwcm9kdWN0fGVufDB8fHx8MTc2OTQ1NTc1NHww&ixlib=rb-4.1.0&q=85"
+      ],
+      "candles": [
+        "https://images.unsplash.com/photo-1524614644069-3517282706d8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwxfHxiZWVzd2F4JTIwY2FuZGxlcyUyMGFlc3RoZXRpY3xlbnwwfHx8fDE3Njk0NTU3NTZ8MA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1694433533360-3aa5cf5c2799?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwyfHxiZWVzd2F4JTIwY2FuZGxlcyUyMGFlc3RoZXRpY3xlbnwwfHx8fDE3Njk0NTU3NTZ8MA&ixlib=rb-4.1.0&q=85"
+      ],
+      "bees_honeycomb": [
+        "https://images.unsplash.com/photo-1626383446531-a9daa73eec48?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxob25leWNvbWIlMjBiZWUlMjBwb2xsZW58ZW58MHx8fHwxNzY5NDU1NzU5fDA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1679924012687-0b4f8c99a01d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwyfHxob25leWNvbWIlMjBiZWUlMjBwb2xsZW58ZW58MHx8fHwxNzY5NDU1NzU5fDA&ixlib=rb-4.1.0&q=85"
+      ]
+    },
+    "icons": "lucide-react"
+  },
+  "instructions_to_main_agent": [
+    "1. UPDATE TAILWIND CONFIG: Replace the default colors in tailwind.config.js with the 'palette' defined above. Set 'background' to #FFFBEB and 'primary' to #F59E0B.",
+    "2. INSTALL FONTS: Add Nunito and Manrope from Google Fonts via index.css (@import).",
+    "3. IMPLEMENT CART: The cart must be a 'Sheet' (Drawer) from Shadcn, not a separate page. It must include the WhatsApp/Telegram checkout logic.",
+    "4. PRODUCT MODAL: Ensure the modal is responsive. On mobile, the image should be at the top, on desktop on the left.",
+    "5. ADMIN PANEL: Create a simple protected route '/admin' with a table to add/edit products.",
+    "6. DATA-TESTID: Add 'data-testid' to all buttons, inputs, and product cards."
+  ],
+  "universal_guidelines": [
+    "Use 2-3x more spacing than feels comfortable.",
+    "Every interaction needs micro-animations (hover, scale, opacity).",
+    "Do not use generic centered layouts; use the grid system defined.",
+    "Ensure text contrast meets WCAG AA standards, especially orange text on white."
+  ]
+}
