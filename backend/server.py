@@ -164,6 +164,86 @@ async def delete_category(category_id: str, admin: str = Depends(verify_admin)):
         raise HTTPException(status_code=404, detail="Category not found")
     return {"success": True}
 
+# Promocodes
+@api_router.get("/promocodes", response_model=List[Promocode])
+async def get_promocodes(admin: str = Depends(verify_admin)):
+    promocodes = await db.promocodes.find({}, {"_id": 0}).to_list(100)
+    return [Promocode(**p) for p in promocodes]
+
+@api_router.post("/promocodes", response_model=Promocode)
+async def create_promocode(promo: PromocodeCreate, admin: str = Depends(verify_admin)):
+    promo_dict = promo.model_dump()
+    promo_dict["id"] = str(uuid.uuid4())
+    promo_dict["current_uses"] = 0
+    promo_dict["is_active"] = True
+    await db.promocodes.insert_one(promo_dict)
+    return Promocode(**promo_dict)
+
+@api_router.delete("/promocodes/{promo_id}")
+async def delete_promocode(promo_id: str, admin: str = Depends(verify_admin)):
+    result = await db.promocodes.delete_one({"id": promo_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Promocode not found")
+    return {"success": True}
+
+@api_router.post("/promocodes/validate")
+async def validate_promocode(data: dict):
+    code = data.get("code", "").strip().upper()
+    subtotal = data.get("subtotal", 0)
+    
+    promo = await db.promocodes.find_one({"code": code.upper()}, {"_id": 0})
+    if not promo:
+        # Try lowercase
+        promo = await db.promocodes.find_one({"code": code.lower()}, {"_id": 0})
+    if not promo:
+        # Try original case
+        promo = await db.promocodes.find_one({"code": data.get("code", "").strip()}, {"_id": 0})
+    
+    if not promo:
+        raise HTTPException(status_code=404, detail="Промокод не найден")
+    
+    if not promo.get("is_active", True):
+        raise HTTPException(status_code=400, detail="Промокод неактивен")
+    
+    if promo.get("current_uses", 0) >= promo.get("max_uses", 0):
+        raise HTTPException(status_code=400, detail="Промокод исчерпан")
+    
+    discount = 0
+    if promo["discount_type"] == "percent":
+        discount = subtotal * promo["discount_value"] / 100
+    else:
+        discount = min(promo["discount_value"], subtotal)
+    
+    return {
+        "valid": True,
+        "code": promo["code"],
+        "discount_type": promo["discount_type"],
+        "discount_value": promo["discount_value"],
+        "discount": round(discount, 2)
+    }
+
+# Orders
+@api_router.get("/orders", response_model=List[Order])
+async def get_orders(admin: str = Depends(verify_admin)):
+    orders = await db.orders.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    return [Order(**o) for o in orders]
+
+@api_router.post("/orders", response_model=Order)
+async def create_order(order: OrderCreate):
+    order_dict = order.model_dump()
+    order_dict["id"] = str(uuid.uuid4())
+    order_dict["created_at"] = datetime.now(timezone.utc).isoformat()
+    
+    # Update promocode usage if used
+    if order.promocode:
+        await db.promocodes.update_one(
+            {"code": order.promocode},
+            {"$inc": {"current_uses": 1}}
+        )
+    
+    await db.orders.insert_one(order_dict)
+    return Order(**order_dict)
+
 # Products
 @api_router.get("/products", response_model=List[Product])
 async def get_products(category_id: Optional[str] = None):
