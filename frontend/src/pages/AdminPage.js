@@ -634,9 +634,11 @@ const AdminPage = () => {
               <div>
                 <Label>Базовая цена (₸)</Label>
                 <Input
-                  type="number"
+                  type="text"
+                  inputMode="numeric"
                   value={productForm.base_price}
-                  onChange={(e) => setProductForm(prev => ({ ...prev, base_price: parseFloat(e.target.value) || 0 }))}
+                  onChange={(e) => setProductForm(prev => ({ ...prev, base_price: e.target.value.replace(/[^\d.]/g, '') }))}
+                  placeholder="0"
                   data-testid="product-price-input"
                 />
               </div>
