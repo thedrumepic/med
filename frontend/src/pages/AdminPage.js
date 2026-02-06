@@ -1198,7 +1198,7 @@ const AdminPage = () => {
                   <Button 
                     variant="ghost" 
                     size="icon"
-                    onClick={() => deletePromocode(promo.id)}
+                    onClick={() => openDeletePromocodeModal(promo)}
                     className="text-gray-300 hover:text-red-500"
                   >
                     <FaTrash className="w-4 h-4" />
