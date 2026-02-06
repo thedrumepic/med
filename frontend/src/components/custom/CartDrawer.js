@@ -264,7 +264,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
               {appliedPromo && (
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-green-600 flex items-center gap-1 font-bold">
-                    <Tag className="w-3 h-3" />
+                    <FaTag className="w-3 h-3" />
                     Скидка ({appliedPromo.code}):
                   </span>
                   <span className="text-green-600 font-bold">-{discount} ₸</span>
@@ -309,7 +309,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                     className="bg-secondary/50 border-border/50 text-sm md:text-base h-10 md:h-11 pl-8"
                     data-testid="promocode-input"
                   />
-                  <Tag className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <FaTag className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 </div>
                 {appliedPromo ? (
                   <Button
@@ -317,7 +317,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                     onClick={removePromocode}
                     className="h-10 md:h-11 px-3 text-red-500 border-red-200 hover:bg-red-50"
                   >
-                    <X className="w-4 h-4" />
+                    <FaTimes className="w-4 h-4" />
                   </Button>
                 ) : (
                   <Button
@@ -329,7 +329,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                     {promoLoading ? (
                       <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
                     ) : (
-                      <Check className="w-4 h-4" />
+                      <FaCheck className="w-4 h-4" />
                     )}
                   </Button>
                 )}
@@ -343,7 +343,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 className="w-full bg-green-500 hover:bg-green-600 text-white font-black py-4 md:py-5 text-sm md:text-base"
                 data-testid="order-whatsapp-btn"
               >
-                <MessageCircle className="w-4 h-4 md:w-5 md:h-5 mr-2" />
+                <FaWhatsapp className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 Заказать через WhatsApp
               </Button>
               <Button
@@ -351,7 +351,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 className="w-full bg-blue-500 hover:bg-blue-600 text-white font-black py-4 md:py-5 text-sm md:text-base"
                 data-testid="order-telegram-btn"
               >
-                <Send className="w-4 h-4 md:w-5 md:h-5 mr-2" />
+                <FaTelegramPlane className="w-4 h-4 md:w-5 md:h-5 mr-2" />
                 Заказать через Telegram
               </Button>
             </div>
