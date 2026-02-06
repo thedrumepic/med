@@ -399,9 +399,10 @@ const AdminPage = () => {
     if (newFeature.trim()) {
       setAboutForm(prev => ({
         ...prev,
-        features: [...prev.features, newFeature.trim()]
+        features: [...prev.features, { text: newFeature.trim(), icon: newFeatureIcon }]
       }));
       setNewFeature("");
+      setNewFeatureIcon("FaCheckCircle");
     }
   };
 
@@ -410,6 +411,36 @@ const AdminPage = () => {
       ...prev,
       features: prev.features.filter((_, i) => i !== index)
     }));
+  };
+
+  const openIconSelector = (index = null) => {
+    setEditingFeatureIndex(index);
+    if (index === null) {
+      // Для нового преимущества
+      setIconSelectorOpen(true);
+    } else {
+      // Для редактирования существующего
+      setNewFeatureIcon(aboutForm.features[index].icon);
+      setIconSelectorOpen(true);
+    }
+  };
+
+  const handleIconSelect = (iconName) => {
+    if (editingFeatureIndex === null) {
+      // Для нового преимущества
+      setNewFeatureIcon(iconName);
+    } else {
+      // Для редактирования существующего
+      const updatedFeatures = [...aboutForm.features];
+      updatedFeatures[editingFeatureIndex] = {
+        ...updatedFeatures[editingFeatureIndex],
+        icon: iconName
+      };
+      setAboutForm(prev => ({
+        ...prev,
+        features: updatedFeatures
+      }));
+    }
   };
 
   const addWeightPrice = () => {
