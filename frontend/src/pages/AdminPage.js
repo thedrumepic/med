@@ -26,6 +26,22 @@ import IconSelector from "@/components/custom/IconSelector";
 
 const ADMIN_PASSWORD = "secretboost1";
 
+// Icon mapping
+const iconComponents = {
+  FaCheck, FaCheckCircle, FaStar, FaHeart, FaLeaf, FaTruck, 
+  FaShieldAlt, FaCertificate, FaAward, FaMedal, FaGem, 
+  FaHandshake, FaUserCheck, FaThumbsUp, FaSmile, FaLightbulb,
+  FaBolt, FaFire, FaSun, FaMoon, FaCloud, FaSnowflake,
+  FaHome, FaStore, FaWarehouse, FaIndustry, FaHospital,
+  FaClock, FaCalendar, FaPhone, FaEnvelope, FaMapMarker,
+  FaDollar, FaCreditCard, FaGift, FaPercent, FaChartLine,
+  FaBox, FaShoppingCart, FaRecycle
+};
+
+const getIconComponent = (iconName) => {
+  return iconComponents[iconName] || FaCheckCircle;
+};
+
 const AdminPage = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
