@@ -58,6 +58,7 @@ class Product(ProductBase):
 class CategoryBase(BaseModel):
     name: str
     slug: str
+    order: int = 0
 
 class CategoryCreate(CategoryBase):
     pass
