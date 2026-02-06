@@ -354,6 +354,25 @@ async def seed_data():
     await db.products.insert_many(products)
     return {"message": "Data seeded successfully", "categories": len(categories), "products": len(products)}
 
+# Fix duplicate categories
+@api_router.post("/fix-categories")
+async def fix_categories():
+    # Delete all categories
+    await db.categories.delete_many({})
+    
+    # Insert unique categories
+    categories = [
+        {"id": "cat-honey", "name": "Мёд", "slug": "honey"},
+        {"id": "cat-bee", "name": "Пчелопродукты", "slug": "bee-products"},
+        {"id": "cat-tincture", "name": "Настойки", "slug": "tinctures"},
+        {"id": "cat-cream", "name": "Крема", "slug": "creams"},
+        {"id": "cat-candle", "name": "Свечи", "slug": "candles"},
+        {"id": "cat-accessory", "name": "Аксессуары", "slug": "accessories"},
+    ]
+    await db.categories.insert_many(categories)
+    
+    return {"message": "Categories fixed", "count": len(categories)}
+
 app.include_router(api_router)
 
 app.add_middleware(
