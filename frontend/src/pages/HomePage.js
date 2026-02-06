@@ -6,8 +6,8 @@ import {
   FaMedal, FaGem, FaHandshake, FaUserCheck, FaThumbsUp, 
   FaSmile, FaLightbulb, FaBolt, FaFire, FaSun, FaMoon, 
   FaCloud, FaSnowflake, FaHome, FaStore, FaWarehouse, 
-  FaIndustry, FaHospital, FaClock, FaCalendar, FaPhone, 
-  FaEnvelope, FaMapMarker, FaDollar, FaCreditCard, FaGift, 
+  FaIndustry, FaHospital, FaClock, FaCalendarAlt, FaPhone, 
+  FaEnvelope, FaMapMarkerAlt, FaDollarSign, FaCreditCard, FaGift, 
   FaPercent, FaChartLine, FaBox, FaRecycle
 } from "react-icons/fa";
 import { GiHoneycomb } from "react-icons/gi";
@@ -26,8 +26,8 @@ const iconComponents = {
   FaHandshake, FaUserCheck, FaThumbsUp, FaSmile, FaLightbulb,
   FaBolt, FaFire, FaSun, FaMoon, FaCloud, FaSnowflake,
   FaHome, FaStore, FaWarehouse, FaIndustry, FaHospital,
-  FaClock, FaCalendar, FaPhone, FaEnvelope, FaMapMarker,
-  FaDollar, FaCreditCard, FaGift, FaPercent, FaChartLine,
+  FaClock, FaCalendarAlt, FaPhone, FaEnvelope, FaMapMarkerAlt,
+  FaDollarSign, FaCreditCard, FaGift, FaPercent, FaChartLine,
   FaBox, FaShoppingCart, FaRecycle
 };
 
