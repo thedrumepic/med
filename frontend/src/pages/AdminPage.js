@@ -287,14 +287,21 @@ const AdminPage = () => {
   };
 
   const deletePromocode = async (id) => {
-    if (!window.confirm("Удалить промокод?")) return;
+    if (!promocodeToDelete) return;
     try {
-      await axios.delete(`${API}/promocodes/${id}`, authHeader);
+      await axios.delete(`${API}/promocodes/${promocodeToDelete.id}`, authHeader);
       toast.success("Промокод удален");
+      setDeletePromocodeModalOpen(false);
+      setPromocodeToDelete(null);
       fetchData();
     } catch (error) {
       toast.error("Ошибка удаления промокода");
     }
+  };
+
+  const openDeletePromocodeModal = (promocode) => {
+    setPromocodeToDelete(promocode);
+    setDeletePromocodeModalOpen(true);
   };
 
   // Order deletion
