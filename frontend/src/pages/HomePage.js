@@ -212,10 +212,10 @@ const HomePage = () => {
                   className="bg-secondary/30 rounded-xl p-4 flex flex-col items-center gap-2"
                 >
                   <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    {getFeatureIcon(index)}
+                    {getFeatureIcon(feature)}
                   </div>
                   <span className="text-xs md:text-sm font-bold text-foreground text-center">
-                    {feature}
+                    {typeof feature === 'object' ? feature.text : feature}
                   </span>
                 </div>
               ))}
