@@ -73,15 +73,14 @@ const HomePage = () => {
     setTimeout(() => setShowCartHint(false), 3000);
   };
 
-  // Feature icons mapping
-  const getFeatureIcon = (index) => {
-    const icons = [
-      <FaLeaf className="w-5 h-5 text-primary" />,
-      <FaAward className="w-5 h-5 text-primary" />,
-      <GiHoneycomb className="w-5 h-5 text-primary" />,
-      <FaTruck className="w-5 h-5 text-primary" />
-    ];
-    return icons[index % icons.length];
+  // Feature icon from API data
+  const getFeatureIcon = (feature) => {
+    if (typeof feature === 'object' && feature.icon) {
+      const IconComponent = getIconComponent(feature.icon);
+      return <IconComponent className="w-5 h-5 text-primary" />;
+    }
+    // Fallback for old string format
+    return <FaCheckCircle className="w-5 h-5 text-primary" />;
   };
 
   if (loading) {
