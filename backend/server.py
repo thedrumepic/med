@@ -114,6 +114,18 @@ class Order(BaseModel):
     promocode: Optional[str]
     created_at: str
 
+# About Us model
+class AboutUsUpdate(BaseModel):
+    title: str
+    description: str
+    features: List[str]
+
+class AboutUs(BaseModel):
+    id: str
+    title: str
+    description: str
+    features: List[str]
+
 # Helper functions
 def verify_admin(credentials: HTTPBasicCredentials = Depends(security)):
     correct_username = secrets.compare_digest(credentials.username, ADMIN_USERNAME)
