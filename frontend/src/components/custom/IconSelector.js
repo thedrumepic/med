@@ -5,8 +5,8 @@ import {
   FaHandshake, FaUserCheck, FaThumbsUp, FaSmile, FaLightbulb,
   FaBolt, FaFire, FaSun, FaMoon, FaCloud, FaSnowflake,
   FaHome, FaStore, FaWarehouse, FaIndustry, FaHospital,
-  FaClock, FaCalendar, FaPhone, FaEnvelope, FaMapMarker,
-  FaDollar, FaCreditCard, FaGift, FaPercent, FaChartLine,
+  FaClock, FaCalendarAlt, FaPhone, FaEnvelope, FaMapMarkerAlt,
+  FaDollarSign, FaCreditCard, FaGift, FaPercent, FaChartLine,
   FaBox, FaShoppingCart, FaRecycle
 } from "react-icons/fa";
 
@@ -39,11 +39,11 @@ const iconList = [
   { name: "FaIndustry", icon: FaIndustry, label: "Производство" },
   { name: "FaHospital", icon: FaHospital, label: "Больница" },
   { name: "FaClock", icon: FaClock, label: "Часы" },
-  { name: "FaCalendar", icon: FaCalendar, label: "Календарь" },
+  { name: "FaCalendarAlt", icon: FaCalendarAlt, label: "Календарь" },
   { name: "FaPhone", icon: FaPhone, label: "Телефон" },
   { name: "FaEnvelope", icon: FaEnvelope, label: "Конверт" },
-  { name: "FaMapMarker", icon: FaMapMarker, label: "Метка" },
-  { name: "FaDollar", icon: FaDollar, label: "Доллар" },
+  { name: "FaMapMarkerAlt", icon: FaMapMarkerAlt, label: "Метка" },
+  { name: "FaDollarSign", icon: FaDollarSign, label: "Доллар" },
   { name: "FaCreditCard", icon: FaCreditCard, label: "Карта" },
   { name: "FaGift", icon: FaGift, label: "Подарок" },
   { name: "FaPercent", icon: FaPercent, label: "Процент" },
