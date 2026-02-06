@@ -277,6 +277,25 @@ const AdminPage = () => {
     }
   };
 
+  // Order deletion
+  const openDeleteOrderModal = (order) => {
+    setOrderToDelete(order);
+    setDeleteOrderModalOpen(true);
+  };
+
+  const deleteOrder = async () => {
+    if (!orderToDelete) return;
+    try {
+      await axios.delete(`${API}/orders/${orderToDelete.id}`, authHeader);
+      toast.success("Заказ удален");
+      setDeleteOrderModalOpen(false);
+      setOrderToDelete(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Ошибка удаления заказа");
+    }
+  };
+
   // Selective data deletion functions
   const deleteDataByType = async (type, label) => {
     if (!window.confirm(`Вы уверены, что хотите удалить все ${label}? Это действие нельзя отменить!`)) return;
