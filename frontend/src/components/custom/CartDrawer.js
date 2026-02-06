@@ -173,14 +173,24 @@ const CartDrawer = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={onClose}>
-      <SheetContent className="w-full sm:max-w-md p-0 flex flex-col bg-white max-h-screen">
-        <SheetHeader className="p-4 border-b border-border/50 flex-shrink-0">
-          <SheetTitle className="flex items-center gap-2 text-foreground" style={{ fontFamily: 'Nunito, sans-serif' }}>
-            <ShoppingCart className="w-5 h-5 text-primary" />
-            Корзина
-          </SheetTitle>
-        </SheetHeader>
+<Sheet open={isOpen} onOpenChange={onClose}>
+  {/* Класс [&>button]:hidden удаляет стандартный крестик */}
+  <SheetContent className="w-full sm:max-w-md p-0 flex flex-col bg-white max-h-screen [&>button]:hidden">
+    
+    <SheetHeader className="p-4 border-b border-border/50 flex-shrink-0 flex-row items-center justify-between space-y-0">
+      <SheetTitle className="flex items-center gap-2 text-foreground" style={{ fontFamily: 'Nunito, sans-serif' }}>
+        <ShoppingCart className="w-5 h-5 text-primary" />
+        Корзина
+      </SheetTitle>
+      
+      {/* Обычная кнопка, которая вызывает функцию закрытия */}
+      <button 
+        onClick={onClose}
+        className="text-[10px] font-bold text-muted-foreground hover:text-primary uppercase tracking-wider transition-colors outline-none"
+      >
+        Добавить товары
+      </button>
+    </SheetHeader>
 
         {/* Cart Items - Scrollable */}
         <div className="flex-1 overflow-y-auto cart-scroll overscroll-contain min-h-0">
