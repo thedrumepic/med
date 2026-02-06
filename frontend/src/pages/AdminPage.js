@@ -39,6 +39,8 @@ const AdminPage = () => {
   const [productModalOpen, setProductModalOpen] = useState(false);
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
   const [promocodeModalOpen, setPromocodeModalOpen] = useState(false);
+  const [deleteOrderModalOpen, setDeleteOrderModalOpen] = useState(false);
+  const [orderToDelete, setOrderToDelete] = useState(null);
   const [editingProduct, setEditingProduct] = useState(null);
   const [editingCategory, setEditingCategory] = useState(null);
 
