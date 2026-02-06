@@ -21,6 +21,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { FaBox, FaTh, FaChevronRight, FaPlus, FaPencilAlt, FaTrash, FaSignOutAlt, FaTimes, FaUpload, FaCog, FaChevronUp, FaChevronDown, FaUsers, FaTag, FaPercent } from "react-icons/fa";
+import DeleteConfirmDialog from "@/components/custom/DeleteConfirmDialog";
 
 const ADMIN_PASSWORD = "secretboost1";
 
