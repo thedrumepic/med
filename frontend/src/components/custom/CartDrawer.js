@@ -412,7 +412,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
               <Input
                 placeholder="Телефон"
                 value={customerPhone}
-                onChange={(e) => setCustomerPhone(e.target.value)}
+                onChange={handlePhoneChange}
                 className="bg-secondary/50 border-border/50 text-sm md:text-base h-10 md:h-11"
                 data-testid="customer-phone-input"
               />
