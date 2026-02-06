@@ -902,7 +902,7 @@ const AdminPage = () => {
                   <Button 
                     variant="ghost" 
                     size="icon"
-                    onClick={() => deleteCategory(category.id)}
+                    onClick={() => openDeleteCategoryModal(category)}
                     className="text-gray-300 hover:text-red-500"
                     data-testid={`delete-category-${category.id}`}
                   >
