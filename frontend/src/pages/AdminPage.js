@@ -688,7 +688,7 @@ const AdminPage = () => {
                   <Button 
                     variant="outline" 
                     size="icon"
-                    onClick={() => deleteProduct(product.id)}
+                    onClick={() => openDeleteProductModal(product)}
                     className="text-gray-400 hover:text-red-500"
                     data-testid={`delete-product-${product.id}`}
                   >
