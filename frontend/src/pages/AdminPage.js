@@ -101,16 +101,23 @@ const AdminPage = () => {
 
   const fetchData = async () => {
     try {
-      const [catRes, prodRes, ordersRes, promoRes] = await Promise.all([
+      const [catRes, prodRes, ordersRes, promoRes, aboutRes] = await Promise.all([
         axios.get(`${API}/categories`),
         axios.get(`${API}/products`),
         axios.get(`${API}/orders`, authHeader),
-        axios.get(`${API}/promocodes`, authHeader)
+        axios.get(`${API}/promocodes`, authHeader),
+        axios.get(`${API}/about`)
       ]);
       setCategories(catRes.data);
       setProducts(prodRes.data);
       setOrders(ordersRes.data);
       setPromocodes(promoRes.data);
+      setAboutData(aboutRes.data);
+      setAboutForm({
+        title: aboutRes.data.title || "",
+        description: aboutRes.data.description || "",
+        features: aboutRes.data.features || []
+      });
     } catch (error) {
       console.error("Error fetching data:", error);
     }
