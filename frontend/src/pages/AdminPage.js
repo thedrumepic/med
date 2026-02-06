@@ -1328,7 +1328,21 @@ const AdminPage = () => {
             </div>
           </DialogContent>
         </Dialog>
+
+        {/* Delete Promocode Modal */}
+        <DeleteConfirmDialog
+          open={deletePromocodeModalOpen}
+          onOpenChange={(open) => {
+            setDeletePromocodeModalOpen(open);
+            if (!open) setPromocodeToDelete(null);
+          }}
+          onConfirm={deletePromocode}
+          title="Подтверждение удаления промокода"
+          itemData={promocodeToDelete}
+          itemType="promocode"
+        />
       </div>
+      </>
     );
   }
 
