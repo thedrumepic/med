@@ -46,7 +46,7 @@ const ProductCard = ({ product, category, onOpenModal }) => {
         )}
         {/* Decorative bee icon */}
         <div className="absolute bottom-2 right-2 md:bottom-3 md:right-3 w-5 h-5 md:w-6 md:h-6 bg-amber-400/80 rounded-full flex items-center justify-center">
-          <span className="text-[10px] md:text-xs">🐝</span>
+          <Bug className="w-3 h-3 md:w-3.5 md:h-3.5 text-white" />
         </div>
       </div>
 
