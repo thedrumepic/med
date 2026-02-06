@@ -119,5 +119,5 @@ const IconSelector = ({ selectedIcon, onSelectIcon, onClose }) => {
   );
 };
 
+export { IconSelector, iconList };
 export default IconSelector;
-export { iconList };
