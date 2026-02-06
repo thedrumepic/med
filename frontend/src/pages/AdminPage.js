@@ -1039,7 +1039,7 @@ const AdminPage = () => {
               <h2 className="font-semibold text-gray-800">Заказы клиентов ({orders.length})</h2>
               {orders.length > 0 && (
                 <button 
-                  onClick={() => deleteDataByType('orders', 'Заказы')}
+                  onClick={openClearOrdersModal}
                   className="text-red-500 hover:text-red-600 text-sm font-medium flex items-center gap-1"
                 >
                   <FaTrash className="w-3 h-3" />
