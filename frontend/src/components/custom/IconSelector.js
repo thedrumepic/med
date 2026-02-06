@@ -101,12 +101,18 @@ const IconSelector = ({ selectedIcon, onSelectIcon, onClose }) => {
         </div>
 
         <div className="p-4 border-t border-gray-100 flex gap-2 justify-end">
-          <Button variant="outline" onClick={onClose}>
+          <button
+            onClick={onClose}
+            className="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
+          >
             Отмена
-          </Button>
-          <Button onClick={onClose} className="bg-primary hover:bg-primary/90">
+          </button>
+          <button
+            onClick={onClose}
+            className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
             Готово
-          </Button>
+          </button>
         </div>
       </div>
     </div>
