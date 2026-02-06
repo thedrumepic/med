@@ -1118,6 +1118,94 @@ const AdminPage = () => {
     );
   }
 
+  // About Us View
+  if (currentView === "about") {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <header className="bg-white border-b border-gray-100 sticky top-0 z-40">
+          <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <button onClick={() => setCurrentView("dashboard")} className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <Users className="w-4 h-4 text-white" />
+              </button>
+              <span className="font-semibold text-gray-800">О нас</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <button onClick={() => setCurrentView("dashboard")} className="text-primary hover:text-primary/80 text-sm font-medium">
+                Админ
+              </button>
+              <button onClick={() => navigate("/")} className="text-gray-500 hover:text-gray-700 text-sm">
+                На сайт
+              </button>
+              <button onClick={handleLogout} className="text-red-500 hover:text-red-600 text-sm">
+                Выйти
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <main className="max-w-2xl mx-auto px-4 py-8">
+          <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <h2 className="font-bold text-gray-800 mb-6">Редактирование блока "О нас"</h2>
+            
+            <div className="space-y-6">
+              <div>
+                <Label>Заголовок</Label>
+                <Input
+                  value={aboutForm.title}
+                  onChange={(e) => setAboutForm(prev => ({ ...prev, title: e.target.value }))}
+                  placeholder="О нас"
+                />
+              </div>
+
+              <div>
+                <Label>Описание</Label>
+                <Textarea
+                  value={aboutForm.description}
+                  onChange={(e) => setAboutForm(prev => ({ ...prev, description: e.target.value }))}
+                  placeholder="Описание вашей компании..."
+                  rows={4}
+                />
+              </div>
+
+              <div>
+                <Label className="mb-2 block">Преимущества</Label>
+                <div className="space-y-2 mb-3">
+                  {aboutForm.features?.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2 bg-gray-50 rounded-lg p-2">
+                      <span className="flex-1 text-sm">{feature}</span>
+                      <button
+                        onClick={() => removeFeature(index)}
+                        className="p-1 hover:bg-red-100 rounded text-red-500"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex gap-2">
+                  <Input
+                    value={newFeature}
+                    onChange={(e) => setNewFeature(e.target.value)}
+                    placeholder="Новое преимущество..."
+                    onKeyDown={(e) => e.key === 'Enter' && addFeature()}
+                  />
+                  <Button onClick={addFeature} variant="outline" size="icon">
+                    <Plus className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+
+              <Button onClick={saveAbout} className="w-full bg-primary hover:bg-primary/90">
+                Сохранить изменения
+              </Button>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return null;
 };
 
