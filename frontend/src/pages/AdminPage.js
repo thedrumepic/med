@@ -988,6 +988,7 @@ const AdminPage = () => {
                         <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Телефон</th>
                         <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Сумма</th>
                         <th className="text-left py-3 px-4 text-sm font-semibold text-gray-600">Промокод</th>
+                        <th className="text-center py-3 px-4 text-sm font-semibold text-gray-600">Действия</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
@@ -1005,6 +1006,15 @@ const AdminPage = () => {
                             ) : (
                               <span className="text-gray-400">—</span>
                             )}
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <button
+                              onClick={() => openDeleteOrderModal(order)}
+                              className="text-gray-400 hover:text-red-500 transition-colors"
+                              title="Удалить заказ"
+                            >
+                              <FaTrash className="w-4 h-4" />
+                            </button>
                           </td>
                         </tr>
                       ))}
