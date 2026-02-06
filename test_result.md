@@ -101,3 +101,125 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: |
+  1. Категории продублировались, исправь!
+  2. В корзине сделай форму телефона такой пример: +7 (777) 777 77 77, чтобы пользователь не запутался в своем номере телефона.
+  3. При формировании заказа через телеграмм, автосообщения с заказом нет, исправь.
+  4. В автособщениях сформированного заказа убери эмодзи, они не нужны.
+  5. В данные в блоке Заказы клиентов сделай рядом с заказами корзину для удаления.
+  6. Для команды Confirm при удалении добавь модальное окно с Отмена и Удалить под дизайн сайта.
+
+backend:
+  - task: "Добавить эндпоинт DELETE /api/orders/{order_id}"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Добавлен эндпоинт для удаления конкретного заказа с проверкой прав администратора"
+  
+  - task: "Исправить дублирование категорий через /api/fix-categories"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Эндпоинт вызван, категории очищены и пересозданы корректно"
+
+frontend:
+  - task: "Изменить маску телефона на +7 (XXX) XXX XX XX"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/custom/CartDrawer.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Формат телефона изменен с дефисами на пробелы. Функция formatPhoneNumber обновлена"
+  
+  - task: "Убрать эмодзи из сообщений заказа"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/custom/CartDrawer.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Все эмодзи удалены из функции formatOrderMessage"
+  
+  - task: "Добавить текст заказа в Telegram"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/custom/CartDrawer.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Функция orderViaTelegram обновлена - добавлен параметр text с сообщением заказа"
+  
+  - task: "Добавить кнопку удаления заказов в таблице"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/AdminPage.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Добавлена колонка Действия с иконкой корзины для удаления заказов"
+  
+  - task: "Модальное окно подтверждения удаления заказа"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/AdminPage.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Создано модальное окно с информацией о заказе, кнопками Отмена и Удалить в стиле сайта"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.1"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Тестирование маски телефона в корзине"
+    - "Тестирование отправки заказа через Telegram с текстом"
+    - "Тестирование удаления заказов в админке"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: |
+      Все 6 задач выполнены:
+      1. ✅ Дублирование категорий исправлено через API эндпоинт
+      2. ✅ Маска телефона изменена на +7 (XXX) XXX XX XX
+      3. ✅ Telegram заказ теперь передает текст сообщения
+      4. ✅ Эмодзи убраны из сообщений заказа
+      5. ✅ Добавлена кнопка удаления в таблице заказов
+      6. ✅ Создано модальное окно подтверждения удаления
+      
+      Требуется тестирование всех изменений.
