@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCart } from "@/App";
-import { ShoppingCart, Heart, Bug, Leaf, Award, Truck, Check } from "lucide-react";
+import { FaShoppingCart, FaHeart, FaLeaf, FaAward, FaTruck } from "react-icons/fa";
+import { GiHoneycomb } from "react-icons/gi";
 import ProductCard from "@/components/custom/ProductCard";
 import ProductModal from "@/components/custom/ProductModal";
 import CartDrawer from "@/components/custom/CartDrawer";
@@ -50,10 +51,10 @@ const HomePage = () => {
   // Feature icons mapping
   const getFeatureIcon = (index) => {
     const icons = [
-      <Leaf className="w-5 h-5 text-primary" />,
-      <Award className="w-5 h-5 text-primary" />,
-      <Bug className="w-5 h-5 text-primary" />,
-      <Truck className="w-5 h-5 text-primary" />
+      <FaLeaf className="w-5 h-5 text-primary" />,
+      <FaAward className="w-5 h-5 text-primary" />,
+      <GiHoneycomb className="w-5 h-5 text-primary" />,
+      <FaTruck className="w-5 h-5 text-primary" />
     ];
     return icons[index % icons.length];
   };
