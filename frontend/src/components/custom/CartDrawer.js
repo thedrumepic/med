@@ -44,10 +44,7 @@ const RedirectNotification = ({ isOpen, onClose, messenger, countdown, url }) =>
           </p>
           
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
-            <p className="text-sm font-black text-amber-800">
-              ⚠️ ВАЖНО
-            </p>
-            <p className="text-sm text-amber-700 mt-1 font-bold">
+            <p className="text-sm text-amber-700 font-bold">
               После перехода нажмите кнопку «Отправить» в самом чате, чтобы мы получили ваш заказ
             </p>
           </div>
