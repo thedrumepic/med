@@ -4,7 +4,7 @@ from datetime import datetime
 import json
 
 class HoneyFarmAPITester:
-    def __init__(self, base_url="https://quick-open-17.preview.emergentagent.com/api"):
+    def __init__(self, base_url="https://honey-admin-fix.preview.emergentagent.com/api"):
         self.base_url = base_url
         self.admin_auth = ('armanuha', 'secretboost1')
         self.tests_run = 0
