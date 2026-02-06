@@ -133,24 +133,24 @@ const ProductModal = ({ product, category, isOpen, onClose, onAddToCart }) => {
             {/* Content Section */}
             <div className="p-6 lg:p-8 flex flex-col">
               {category && (
-                <span className="text-primary text-sm font-semibold uppercase tracking-wider mb-2">
+                <span className="text-primary text-sm font-black uppercase tracking-wider mb-2">
                   {category.name}
                 </span>
               )}
 
-              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4" style={{ fontFamily: 'Nunito, sans-serif' }}>
+              <h2 className="text-2xl lg:text-3xl font-black text-foreground mb-4" style={{ fontFamily: 'Nunito, sans-serif' }}>
                 {product.name}
               </h2>
 
               {product.description && (
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 font-bold">
                   {product.description}
                 </p>
               )}
 
               {hasWeights && (
                 <div className="mb-6">
-                  <p className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">
+                  <p className="text-sm font-black text-foreground mb-3 uppercase tracking-wider">
                     Выберите вес:
                   </p>
                   <div className="grid grid-cols-3 gap-2">
@@ -158,7 +158,7 @@ const ProductModal = ({ product, category, isOpen, onClose, onAddToCart }) => {
                       <button
                         key={index}
                         onClick={() => setSelectedWeight(wp)}
-                        className={`weight-btn py-2 px-3 rounded-lg border-2 text-sm font-medium transition-all ${
+                        className={`weight-btn py-2 px-3 rounded-lg border-2 text-sm font-black transition-all ${
                           selectedWeight?.weight === wp.weight
                             ? "border-primary bg-primary text-white"
                             : "border-amber-200 bg-amber-50 text-foreground hover:border-primary"
@@ -173,8 +173,8 @@ const ProductModal = ({ product, category, isOpen, onClose, onAddToCart }) => {
               )}
 
               <div className="mb-6">
-                <span className="text-sm font-semibold text-primary uppercase tracking-wider">Цена</span>
-                <p className="text-3xl font-bold text-foreground mt-1" style={{ fontFamily: 'Nunito, sans-serif' }}>
+                <span className="text-sm font-black text-primary uppercase tracking-wider">Цена</span>
+                <p className="text-3xl font-black text-foreground mt-1" style={{ fontFamily: 'Nunito, sans-serif' }}>
                   {currentPrice} ₸
                 </p>
               </div>
@@ -182,7 +182,7 @@ const ProductModal = ({ product, category, isOpen, onClose, onAddToCart }) => {
               <div className="mt-auto pt-2">
                 <Button
                   onClick={handleAddToCart}
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-6 rounded-xl text-lg btn-primary"
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-black py-6 rounded-xl text-lg btn-primary"
                   data-testid="add-to-cart-btn-desktop"
                 >
                   <ShoppingCart className="w-5 h-5 mr-2" />
