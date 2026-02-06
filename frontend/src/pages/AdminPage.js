@@ -351,7 +351,7 @@ const AdminPage = () => {
         <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <Settings className="w-5 h-5 text-white" />
+              <FaCog className="w-5 h-5 text-white" />
             </div>
             <h1 className="text-xl font-bold text-gray-800" style={{ fontFamily: 'Nunito, sans-serif' }}>
               Админ-панель
@@ -387,7 +387,7 @@ const AdminPage = () => {
           <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Settings className="w-4 h-4 text-white" />
+                <FaCog className="w-4 h-4 text-white" />
               </div>
               <span className="font-semibold text-gray-800">Админ-панель</span>
             </div>
@@ -415,13 +415,13 @@ const AdminPage = () => {
               data-testid="products-card"
             >
               <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">
-                <Package className="w-7 h-7 text-blue-500" />
+                <FaBox className="w-7 h-7 text-blue-500" />
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-800">Товары</h3>
                 <p className="text-sm text-gray-500">{products.length} позиций в каталоге</p>
               </div>
-              <ChevronRight className="w-5 h-5 text-gray-300" />
+              <FaChevronRight className="w-5 h-5 text-gray-300" />
             </button>
 
             <button
@@ -430,13 +430,13 @@ const AdminPage = () => {
               data-testid="categories-card"
             >
               <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center">
-                <Grid3X3 className="w-7 h-7 text-purple-500" />
+                <FaTh className="w-7 h-7 text-purple-500" />
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-800">Категории</h3>
                 <p className="text-sm text-gray-500">{categories.length} категорий товаров</p>
               </div>
-              <ChevronRight className="w-5 h-5 text-gray-300" />
+              <FaChevronRight className="w-5 h-5 text-gray-300" />
             </button>
 
             <button
@@ -445,13 +445,13 @@ const AdminPage = () => {
               data-testid="orders-card"
             >
               <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center">
-                <Users className="w-7 h-7 text-green-500" />
+                <FaUsers className="w-7 h-7 text-green-500" />
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-800">Данные</h3>
                 <p className="text-sm text-gray-500">{orders.length} заказов от клиентов</p>
               </div>
-              <ChevronRight className="w-5 h-5 text-gray-300" />
+              <FaChevronRight className="w-5 h-5 text-gray-300" />
             </button>
 
             <button
@@ -460,13 +460,13 @@ const AdminPage = () => {
               data-testid="promocodes-card"
             >
               <div className="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center">
-                <Tag className="w-7 h-7 text-orange-500" />
+                <FaTag className="w-7 h-7 text-orange-500" />
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-800">Промокоды</h3>
                 <p className="text-sm text-gray-500">{promocodes.length} активных промокодов</p>
               </div>
-              <ChevronRight className="w-5 h-5 text-gray-300" />
+              <FaChevronRight className="w-5 h-5 text-gray-300" />
             </button>
 
             <button
@@ -475,13 +475,13 @@ const AdminPage = () => {
               data-testid="about-card"
             >
               <div className="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center">
-                <Users className="w-7 h-7 text-amber-500" />
+                <FaUsers className="w-7 h-7 text-amber-500" />
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-800">О нас</h3>
                 <p className="text-sm text-gray-500">Редактирование блока "О нас" на главной</p>
               </div>
-              <ChevronRight className="w-5 h-5 text-gray-300" />
+              <FaChevronRight className="w-5 h-5 text-gray-300" />
             </button>
           </div>
 
@@ -550,7 +550,7 @@ const AdminPage = () => {
           <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button onClick={() => setCurrentView("dashboard")} className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Package className="w-4 h-4 text-white" />
+                <FaBox className="w-4 h-4 text-white" />
               </button>
               <span className="font-semibold text-gray-800">Товары</span>
             </div>
@@ -572,7 +572,7 @@ const AdminPage = () => {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <Settings className="w-5 h-5 text-gray-400" />
+                <FaCog className="w-5 h-5 text-gray-400" />
                 <h2 className="font-semibold text-gray-800">Список товаров</h2>
               </div>
               <button 
@@ -583,7 +583,7 @@ const AdminPage = () => {
               </button>
             </div>
             <Button onClick={() => openProductModal()} className="bg-primary hover:bg-primary/90" data-testid="add-product-btn">
-              <Plus className="w-4 h-4 mr-2" />
+              <FaPlus className="w-4 h-4 mr-2" />
               Добавить
             </Button>
           </div>
@@ -610,7 +610,7 @@ const AdminPage = () => {
                     onClick={() => openProductModal(product)}
                     data-testid={`edit-product-${product.id}`}
                   >
-                    <Pencil className="w-3 h-3 mr-1" />
+                    <FaPencilAlt className="w-3 h-3 mr-1" />
                     Изменить
                   </Button>
                   <Button 
@@ -620,7 +620,7 @@ const AdminPage = () => {
                     className="text-gray-400 hover:text-red-500"
                     data-testid={`delete-product-${product.id}`}
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <FaTrash className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
@@ -680,7 +680,7 @@ const AdminPage = () => {
                   <label className="cursor-pointer">
                     <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
                     <Button type="button" variant="outline" asChild>
-                      <span><Upload className="w-4 h-4" /></span>
+                      <span><FaUpload className="w-4 h-4" /></span>
                     </Button>
                   </label>
                 </div>
@@ -715,7 +715,7 @@ const AdminPage = () => {
                     onChange={(e) => setWeightInput(prev => ({ ...prev, price: e.target.value.replace(/[^\d.]/g, '') }))}
                   />
                   <Button type="button" variant="outline" onClick={addWeightPrice}>
-                    <Plus className="w-4 h-4" />
+                    <FaPlus className="w-4 h-4" />
                   </Button>
                 </div>
                 <div className="space-y-2">
@@ -730,7 +730,7 @@ const AdminPage = () => {
                           onClick={() => moveWeightPrice(index, -1)}
                           disabled={index === 0}
                         >
-                          <ChevronUp className="w-3 h-3" />
+                          <FaChevronUp className="w-3 h-3" />
                         </Button>
                         <Button 
                           type="button" 
@@ -740,7 +740,7 @@ const AdminPage = () => {
                           onClick={() => moveWeightPrice(index, 1)}
                           disabled={index === productForm.weight_prices.length - 1}
                         >
-                          <ChevronDown className="w-3 h-3" />
+                          <FaChevronDown className="w-3 h-3" />
                         </Button>
                       </div>
                       <Input
@@ -760,7 +760,7 @@ const AdminPage = () => {
                       />
                       <span className="text-sm text-gray-500">₸</span>
                       <Button type="button" variant="ghost" size="icon" className="h-8 w-8 ml-auto" onClick={() => removeWeightPrice(index)}>
-                        <X className="w-4 h-4 text-red-400" />
+                        <FaTimes className="w-4 h-4 text-red-400" />
                       </Button>
                     </div>
                   ))}
@@ -787,7 +787,7 @@ const AdminPage = () => {
           <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button onClick={() => setCurrentView("dashboard")} className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Grid3X3 className="w-4 h-4 text-white" />
+                <FaTh className="w-4 h-4 text-white" />
               </button>
               <span className="font-semibold text-gray-800">Категории</span>
             </div>
@@ -834,7 +834,7 @@ const AdminPage = () => {
                     className="text-gray-300 hover:text-red-500"
                     data-testid={`delete-category-${category.id}`}
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <FaTrash className="w-4 h-4" />
                   </Button>
                 </div>
               ))}
@@ -845,7 +845,7 @@ const AdminPage = () => {
               className="w-full mt-4 py-4 border-2 border-dashed border-gray-200 rounded-xl text-gray-400 hover:text-primary hover:border-primary transition-colors flex items-center justify-center gap-2"
               data-testid="add-category-btn"
             >
-              <Plus className="w-4 h-4" />
+              <FaPlus className="w-4 h-4" />
               Добавить категорию
             </button>
           </div>
@@ -894,7 +894,7 @@ const AdminPage = () => {
           <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button onClick={() => setCurrentView("dashboard")} className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Users className="w-4 h-4 text-white" />
+                <FaUsers className="w-4 h-4 text-white" />
               </button>
               <span className="font-semibold text-gray-800">Данные</span>
             </div>
@@ -926,7 +926,7 @@ const AdminPage = () => {
           <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
             {orders.length === 0 ? (
               <div className="p-12 text-center">
-                <Users className="w-12 h-12 text-gray-200 mx-auto mb-4" />
+                <FaUsers className="w-12 h-12 text-gray-200 mx-auto mb-4" />
                 <p className="text-gray-500">Заказов пока нет</p>
               </div>
             ) : (
@@ -949,7 +949,7 @@ const AdminPage = () => {
                         <td className="py-3 px-4 text-sm">
                           {order.promocode ? (
                             <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-700 rounded-md text-xs font-medium">
-                              <Tag className="w-3 h-3" />
+                              <FaTag className="w-3 h-3" />
                               {order.promocode}
                             </span>
                           ) : (
@@ -976,7 +976,7 @@ const AdminPage = () => {
           <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button onClick={() => setCurrentView("dashboard")} className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Tag className="w-4 h-4 text-white" />
+                <FaTag className="w-4 h-4 text-white" />
               </button>
               <span className="font-semibold text-gray-800">Промокоды</span>
             </div>
@@ -1014,7 +1014,7 @@ const AdminPage = () => {
                 >
                   <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
                     {promo.discount_type === "percent" ? (
-                      <Percent className="w-5 h-5 text-orange-500" />
+                      <FaPercent className="w-5 h-5 text-orange-500" />
                     ) : (
                       <span className="text-orange-500 font-bold text-xs">₸</span>
                     )}
@@ -1034,7 +1034,7 @@ const AdminPage = () => {
                     onClick={() => deletePromocode(promo.id)}
                     className="text-gray-300 hover:text-red-500"
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <FaTrash className="w-4 h-4" />
                   </Button>
                 </div>
               ))}
@@ -1045,7 +1045,7 @@ const AdminPage = () => {
               className="w-full mt-4 py-4 border-2 border-dashed border-gray-200 rounded-xl text-gray-400 hover:text-primary hover:border-primary transition-colors flex items-center justify-center gap-2"
               data-testid="add-promocode-btn"
             >
-              <Plus className="w-4 h-4" />
+              <FaPlus className="w-4 h-4" />
               Добавить промокод
             </button>
           </div>
@@ -1126,7 +1126,7 @@ const AdminPage = () => {
           <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button onClick={() => setCurrentView("dashboard")} className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Users className="w-4 h-4 text-white" />
+                <FaUsers className="w-4 h-4 text-white" />
               </button>
               <span className="font-semibold text-gray-800">О нас</span>
             </div>
@@ -1178,7 +1178,7 @@ const AdminPage = () => {
                         onClick={() => removeFeature(index)}
                         className="p-1 hover:bg-red-100 rounded text-red-500"
                       >
-                        <X className="w-4 h-4" />
+                        <FaTimes className="w-4 h-4" />
                       </button>
                     </div>
                   ))}
@@ -1191,7 +1191,7 @@ const AdminPage = () => {
                     onKeyDown={(e) => e.key === 'Enter' && addFeature()}
                   />
                   <Button onClick={addFeature} variant="outline" size="icon">
-                    <Plus className="w-4 h-4" />
+                    <FaPlus className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
